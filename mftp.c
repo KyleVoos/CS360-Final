@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
     while (strcmp(newCon.arg1, "exit") != 0) {  // continue running while the client hasn't entered exit
         memset(newCon.messageBuf, 0, BUF_SIZE); // clear the client message buffer
         fprintf(stdout, "MFTP> ");
-        fgets(newCon.messageBuf, BUF_SIZE, stdin);
+        fgets(newCon.messageBuf, BUF_SIZE - 1, stdin);
         if (isspace(newCon.messageBuf[0]) == 0) { // make sure the first character entered by the user is not whitespace
             getArgs(newCon.messageBuf, &newCon);    // get the two arguments from the input entered by the user
             fprintf(stdout, "newCon.messageBuf = %s\n", newCon.messageBuf);
